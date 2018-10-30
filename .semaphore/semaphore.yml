@@ -15,7 +15,7 @@ blocks:
           value: /opt/go/bin
       prologue:
         commands:
-          - sudo mdir -p $GOBIN
+          - sudo mkdir -p $GOBIN
           - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sudo sh
       jobs:
         - name: Docker build

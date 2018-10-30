@@ -21,4 +21,4 @@ blocks:
         - name: Docker build
           commands:
             - checkout
-            - dep ensure
+            - dep ensure -v

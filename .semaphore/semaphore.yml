@@ -10,7 +10,7 @@ blocks:
     task:
       env_vars:
         - name: CONTACTS_DB_URL
-          value: postgres://postgres:semaphore@localhost/postgres
+          value: postgres://postgres:semaphore@localhost/postgres?sslmode=disable
       prologue:
         commands:
           - sem-service start postgres

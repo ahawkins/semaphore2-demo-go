@@ -13,6 +13,8 @@ blocks:
           value: postgres://postgres:semaphore@localhost/postgres
       prologue:
         commands:
+          - export SEMAPHORE_GIT_DIR=${HOME}/go/src/github.com/${SEMAPHORE_PROJECT_NAME}
+          - mkdir -vp "${SEMAPHORE_GIT_DIR}"
           - mkdir -p ~/go/bin
           - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sudo sh
       jobs:

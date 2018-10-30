@@ -13,10 +13,10 @@ blocks:
           value: postgres://postgres:semaphore@localhost/postgres
       prologue:
         commands:
-          - mkdir -p "$(go env GOPATH)/bin"
+          - mkdir -p ~/go/bin
           - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sudo sh
       jobs:
         - name: Docker build
           commands:
             - checkout
-            - "$(go env GOPATH)/bin/dep" ensure
+            - ~/go/bin/dep ensure

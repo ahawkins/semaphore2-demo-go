@@ -1,0 +1,21 @@
+version: v1.0
+name: Go Example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: "Test"
+    task:
+      env_vars:
+        - name: CONTACTS_DB_URL
+          value: postgres://postgres:semaphore@localhost/postgres
+      prologue:
+        commands:
+          - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+      jobs:
+        - name: Docker build
+          commands:
+            - checkout
+            - dep ensure

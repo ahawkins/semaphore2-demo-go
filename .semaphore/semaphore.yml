@@ -19,4 +19,4 @@ blocks:
         - name: Docker build
           commands:
             - checkout
-            - dep ensure
+            - "$(go env GOPATH)/bin/dep" ensure

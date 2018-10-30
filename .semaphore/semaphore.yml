@@ -11,11 +11,9 @@ blocks:
       env_vars:
         - name: CONTACTS_DB_URL
           value: postgres://postgres:semaphore@localhost/postgres
-        - name: GOBIN
-          value: /opt/go/bin
       prologue:
         commands:
-          - sudo mkdir -p $GOBIN
+          - mkdir -p "$(go env GOPATH)/bin"
           - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sudo sh
       jobs:
         - name: Docker build
